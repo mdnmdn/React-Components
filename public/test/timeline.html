@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/components/timeline/timeline.css">
+    <!--<link rel="stylesheet" href="../assets/components/timeline/timeline-theme.css">-->
+    <script src="../assets/js/jquery-2.2.4.min.js"></script>
+    <script src="../assets/components/timeline/timeline-min.js"></script>
+    <script src="../assets/components/timeline/timeline-locales.js"></script>
+    <script src="../bundle.js"></script>
+</head>
+<body>
+<span class="glyphicon glyphicon-ok"></span>
+timeline
+
+<div id="timeline-container"></div>
+
+<script>
+    var timeline;
+    function drawVisualization() {
+        // create and populate an array with data
+        var data = [
+            {'start': new Date(2015, 07, 01), 'content': 'First'},
+            {'start': new Date(2016, 10, 26), 'content': 'Last'}
+        ];
+
+        var end   = new Date();
+        //var start = new Date(end.getFullYear(),end.getMonth() - 1,end.getDay());
+        var start = new Date(end.getFullYear(),end.getMonth() - 1,end.getDay());
+        console.log(start,end);
+        // specify options
+        var options = {
+            "locale": "it",
+            "width":  "100%",
+            //"height": "auto",
+            "height": "60px",
+            "axisOnTop":true,
+            "end": end,
+            "start": start,
+            "min": new Date(2015, 07, 01),                // lower limit of visible range
+            "max": new Date(),                // upper limit of visible range
+            "zoomMin": 1000 * 60 * 60 * 24        //  day in milliseconds
+            //,"zoomMax": 1000 * 60 * 60 * 24 * 31 * 3     // about three months in milliseconds
+        };
+
+        // Instantiate our timeline object.
+        timeline = new links.Timeline(document.getElementById('timeline-container'), options);
+
+        // Draw our timeline with the created data and options
+        //timeline.draw(data);
+
+        timeline.setVisibleChartRange(start,end);
+    }
+    $(drawVisualization);
+</script>
+</body>
+</html>
