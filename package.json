@@ -19,6 +19,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-minify": "0.0.14",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-watch": "^4.3.9",
     "merge-stream": "^1.0.0",
     "streamqueue": "^1.1.1",
     "webpack": "^1.13.1"
